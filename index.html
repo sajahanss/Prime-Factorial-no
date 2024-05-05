@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 1px solid black;
+            width: 40%;
+            height: 300px;
+            float: left;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+     <caption>Prime Number</caption>
+    <tr>
+        <td>
+    <label>Enter Number to find Prime no or not </label>
+    <input type="number" id="pinp">
+    <button onclick="Primeno()">Submit</button>
+    <h2 id="pout"></h2>
+        </td>
+     </tr>
+    </table>
+
+
+    <table>
+        <caption>Factorial Number</caption>
+       <tr>
+           <td>
+    <label>Enter Number to find factorial of no </label>
+    <input type="number" id="finp">
+    <button onclick="factno()">Submit</button>
+    <h2 id="fout"></h2>
+           </td>
+       </tr>
+    </table>
+
+
+    <script>
+        function Primeno()
+        {
+          var pno=parseInt(document.getElementById("pinp").value);
+          var check=0;
+          if(pno==2)
+          {
+            alert(pno+" is Prime Number");
+          }else{
+            for(var i=2; i<pno ; i++)
+            {
+                if(pno%i===0)
+                {
+                  document.getElementById("pout").innerHTML=pno+" is not a Prime Number";
+                  check=1;
+                  return false;
+                  break;
+                  
+                }
+            }
+             if(check!=1)
+             {
+                document.getElementById("pout").innerHTML=pno+" is Prime Number";
+             }
+          }
+        }
+
+
+        function factno()
+        {
+            var fno=parseInt(document.getElementById("finp").value);
+            var fact=fno;
+            var factans=fno;
+            for(var i=1; i!=fno; i++ )
+            {
+               fact=fact+"*"+(fno-i);
+               factans=factans*(fno-i);
+            }
+            document.getElementById("fout").innerHTML=fno+" Factorial : "+ fact+" = " + factans;
+        }
+    </script>
+</body>
+</html>
